@@ -20,10 +20,10 @@ function create(req, res) {
       delete req.body[key]
     }
   }
-  // console.log(req.body)
   const flight = new Flight(req.body)
-  flight.save(function(err) {
-  if (err) return res.render("flights/new")
+  flight.save(function(error) {
+    console.log(error)
+  if (error) return res.render("flights/new")
   res.redirect("/flights")
 })
 }
