@@ -5,13 +5,15 @@ function index(req, res) {
     res.render('flights/index', {
       flights: flights,
       error: error,
-      title: "Mongoose Flights"
+      title: "All Mongoose Flights"
   })
   })
 }
 
 function newFlight(req, res) {
-  res.render("flights/new")
+  res.render("flights/new", {
+    title: "Add New Flight"
+  })
 }
 
 function create(req, res) {
@@ -22,7 +24,6 @@ function create(req, res) {
   }
   const flight = new Flight(req.body)
   flight.save(function(error) {
-    console.log(error)
   if (error) return res.render("flights/new")
   res.redirect("/flights")
 })
