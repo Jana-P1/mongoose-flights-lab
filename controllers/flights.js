@@ -5,24 +5,25 @@ function index(req, res) {
     res.render('flights/index', {
       flights: flights,
       error: error,
-      title: title
+      title: "Mongoose Flights"
   })
   })
 }
 
 function newFlight(req, res) {
-  res.render("flights/new", {
-    title: "New Flight",
-  })
+  res.render("flights/new")
 }
 
 function create(req, res) {
-  if (req.body.departs === '') {
-    delete req.body.departs
-}
+  for(let key in req.body) {
+    if (req.body[key] === '') {
+      delete req.body[key]
+    }
+  }
+  // console.log(req.body)
   const flight = new Flight(req.body)
-  flight.save(function(error) {
-  if (error) return res.render('flights/new')
+  flight.save(function(err) {
+  if (err) return res.render("flights/new")
   res.redirect("/flights")
 })
 }

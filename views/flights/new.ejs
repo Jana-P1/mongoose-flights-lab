@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %> </title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Add New Flight</title>
 </head>
 <body>
   <h1>Add New Flight</h1>
   <form id="new-form" action="/flights" method="POST">
-    <label>Airline:
-      <select name="airline">
+    <label for="airline-input">Airline:
+      <select name="airline-input">
         <option value="American Airlines">American</option>
         <option value="United Airlines">United</option>
         <option value="Southwest Airlines">Southwest</option>
       </select>
     </label><br>
-    <label>Airport:
+    <label for="airport-input">Airport:
       <select name="airport">
         <option value="AUS">AUS</option>
         <option value="DFW">DFW</option>
@@ -26,10 +26,10 @@
         <option value="SAN">SAN</option>
       </select>
     </label><br>
-    <label>flightNo
+    <label for="flight-input">flightNo
       <input type="number" name="flightNo">
     </label><br>
-    <label>Departs:
+    <label for="departs-input">Departs:
       <input type="datetime-local">
     </label><br>
     <button type="submit">Add Flight</button>
