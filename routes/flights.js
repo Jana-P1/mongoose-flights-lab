@@ -1,10 +1,16 @@
 import { Router } from 'express'
 const router = Router()
+import * as flightsCtrl from "../controllers/flights.js"
 
 /* GET localhost:3000/flights */
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-})
+router.get('/', flightsCtrl.index)
+// GET - localhost:3000/flights
+router.get("/new", flightsCtrl.new)
+// POST - localhost:3000/flights
+router.post("/", flightsCtrl.create)
+
+
+
 
 export {
   router
