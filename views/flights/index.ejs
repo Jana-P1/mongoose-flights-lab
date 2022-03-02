@@ -4,11 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script 
+    src="https://kit.fontawesome.com/4da7a940f0.js"
+    crossorigin="anonymous"
+  ></script>
+  <link rel="stylesheet" href="/stylesheets/main.css">
   <title><%= title%></title>
 </head>
 <body>
+  <nav>
+    <i class="fas fa-film fa-2x"></i>
+    <a href="/flights/new">Add New Flight</a>
+    <a href="/flights">View all flights</a>
+  </nav>
   <h1><%= title %></h1>
-  <a href="/flights/new">New Flight</a>
   <table id="list">
     <thead>
       <th>Airline</th>
