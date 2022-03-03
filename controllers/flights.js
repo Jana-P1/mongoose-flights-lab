@@ -5,7 +5,7 @@ function index(req, res) {
     res.render('flights/index', {
       flights: flights,
       error: error,
-      title: "All Mongoose Flights"
+      title: "All Flights"
   })
   })
 }
@@ -28,8 +28,28 @@ function create(req, res) {
   res.redirect("/flights")
 })
 }
+
+function show(req, res) {
+  Flight.findById(req.params.id, function(error, flight) {
+    res.render("flights/show", {
+      title: "Flight Detail",
+      flight: flight,
+    })
+  })
+}
+
+function addTicket(req, res) {
+  Flight.findById(req.params.id, function (error, flight) {
+    flight.tickets.push(req.body)
+    flight.save(function(error) {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
 export {
   index,
   newFlight as new,
   create,
+  show,
+  addTicket,
 }

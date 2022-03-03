@@ -1,11 +1,13 @@
 </head>
 <body>
   <nav>
-    <i class="fa-solid fa-plane"></i>
+    <i class="fa-solid fa-plane fa-2x"></i>
     <div>
       <h1>Mongoose Flights</h1>
     </div>
-    <a href="/flights/new" <%- title === "Add Flight" ? 'class="active"' : "" %> >Add New Flight</a>
-    <a href="/flights" <%- title === "All Flights" ? 'class="active"' : ''  %> >View all flights</a>
+    <div id="links">
+      <a href="/flights/new" <%- title === "Add Flight" ? 'class="active"' : "" %> id="add">Add Flights</a>
+      <a href="/flights" <%- title === "All Flights" ? 'class="active"' : ''  %> id="view" >View Flights</a>
+    </div>
   </nav>
   
