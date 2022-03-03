@@ -32,12 +32,15 @@ function create(req, res) {
 
 function show(req, res) {
   Flight.findById(req.params.id)
-  .populate("meal")
+  .populate("meals")
   .exec(function(error, flight) {
-    Meal.find({_id: {$nin: flight.meal}}, function(error, meals) {
+    Meal.find({_id: {$nin: flight.meals}}, function(error, meals) {
+      console.log("flight: ", flight)
+      console.log("meals: ", meals)
       res.render("flights/show", {
         title: "Flight Detail",
-        flight: flight,
+        flight,
+        meals,
     })
     })
   })
@@ -54,9 +57,9 @@ function addTicket(req, res) {
 
 function addToMeal(req, res) {
   Flight.findById(req.params.id, function(error, flight) {
-    flight.meal.push(req.body.mealId)
+    flight.meals.push(req.body.mealId)
     flight.save(function(error) {
-      res.redirect(`/flight/${flight._id}`)
+      res.redirect(`/flights/${flight._id}`)
     })
   })
 }

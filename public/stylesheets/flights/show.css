@@ -73,5 +73,17 @@ input {
   color: #EEE8A9;
 }
 
+select {
+  font-size: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#meals {
+  color: #051937;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
 
 
