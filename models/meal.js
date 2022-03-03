@@ -7,8 +7,6 @@ const mealSchema = new Schema ({
     required: true,
     unique: true,
   }
-}, {
-  timestamps: true
 })
 
 const Meal = mongoose.model("Meal", mealSchema)
